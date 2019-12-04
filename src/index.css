@@ -1,0 +1,149 @@
+body {
+    font-size: 14px;
+    font-family: 'Luckiest Guy', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.status {
+    margin-bottom: 10px;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.square {
+    font-family: 'Luckiest Guy', cursive;
+    background: #fff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    width: calc(180px/3);
+    height: calc(180px/3);
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square:empty {
+    background-color: #BDBDBD;
+    border-radius: 0;
+    border: none;
+    cursor: not-allowed;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    border: 5px solid brown;
+    width: 180px;
+    height: 180px;
+    background-color: #BDBDBD;
+}
+
+.game-info {
+    margin-left: 20px;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.first-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.first-page__title {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 46px;
+}
+.first-page__subtitle {
+    margin-bottom: 200px;
+    font-size: 18px;
+}
+.first-page__action-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+}
+.btn-start {
+    margin-bottom: 50px;
+    font-size: 30px;
+}
+
+.btn-config {
+    font-size: 20px;
+    width: 50%;
+}
+.btn-config > svg {
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite
+}
+
+.game-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.select-mode {
+    border: 1px solid black;
+    border-radius: 3px;
+    font-family: 'Luckiest Guy', cursive;
+    width: 50px;
+    height: 20px;
+    font-size: 14px;
+    display: block;
+    line-height: 1;
+    margin: 0;
+    padding-left: 3px;
+    padding-top: 4px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("https://icon-library.net/images/caret-icon/caret-icon-8.jpg");
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: right;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
