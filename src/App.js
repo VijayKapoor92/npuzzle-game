@@ -3,11 +3,13 @@ import GameView from "./views/GameView";
 import ModalWinner from "./components/ModalWinner";
 import IntroView from "./views/IntroView";
 import ModalScores from "./components/ModalScores";
+import ModalHint from "./components/ModalHint";
 
 import { PUZZLE_MODE_3X3 } from "./utils/constants";
 import { Puzzles, Answers } from "./utils/puzzles";
 import {getPositionZero, shuffle} from "./utils";
 import {Storage, StorageScores} from "./dao";
+import { FaQuestion } from "react-icons/fa";
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class App extends Component {
       },
       scores: [],
       openScores: false,
+      openHint: false,
       status: "stop",
       isWinner: false,
       openWinner: false
@@ -152,8 +155,14 @@ class App extends Component {
   handleCloseScores = () =>
     this.setState({openScores: false});
 
+  handleOpenHint = () =>
+    this.setState({openHint: true});
+
+  handleCloseHint = () =>
+    this.setState({openHint: false});
+
   render() {
-    const {game, winner, openWinner, scores, openScores} = this.state;
+    const {game, winner, openWinner, scores, openScores, openHint} = this.state;
     const { status, squares, steps } = game;
 
     return (
@@ -169,12 +178,17 @@ class App extends Component {
           steps={steps}
           onClose={this.handleCloseWinner}
         />
+        <ModalHint
+          open={openHint}
+          onClose={this.handleCloseHint}
+        />
         <IntroView
           squares={squares}
           status={status}
           onStart={this.handleStart}
           onContinue={this.handleContinue}
           onOpenScores={this.handleOpenScores}
+          onOpenHint={this.handleOpenHint}
         />
         <GameView
           status={status}
@@ -187,6 +201,23 @@ class App extends Component {
           onReset={this.handleReset}
           onClickSquare={this.handleClickSquare}
         />
+        <button
+          onClick={() => this.handleOpenHint()}
+          style={{
+            fontSize: 24,
+            borderRadius: '50%',
+            padding: 0,
+            width: 45,
+            height: 45,
+            position: "absolute",
+            bottom: 25,
+            left: "calc(50% - 22.5px)",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+          <FaQuestion/>
+        </button>
       </Fragment>
     );
   }

@@ -7,6 +7,7 @@ const ModalConfig = ({open, mode, onChange, onClose}) =>
       open={open}
       title="Configurações"
       onClose={onClose}
+      type="config"
     >
       <div style={{display: "flex", alignItems: "center"}}>
         <label style={{marginRight: 10}}>Nível:</label>

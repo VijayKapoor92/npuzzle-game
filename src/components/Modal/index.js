@@ -6,7 +6,7 @@ import {
 import "./index.css";
 
 const Modal = ({open, type, title, children, onClose}) => {
-  const className = `modal-content ${type === "scores" ? "scores" : ""} ${type !== "winner" && type !== "scores" ? "modal-config" : ""}`;
+  const className = `modal-content ${type === "hint" ? "hint" : ""} ${type === "scores" ? "scores" : ""} ${type === "config" ? "modal-config" : ""}`;
   return (
     <div className={`modal ${open ? "show" : ""}`}>
       <div className={className}>

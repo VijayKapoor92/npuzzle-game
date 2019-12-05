@@ -6,7 +6,7 @@ const IntroView = ({squares, status, onContinue, onStart, onOpenScores}) =>
     <div className="first-page">
       <div className="first-page__title">
         N-PUZZLE
-        <button onClick={() => onOpenScores()} style={{fontSize: 24, borderRadius: '50%', padding: 0, width: 45, height: 45, position: "absolute", right: -35, top: -35}}>
+        <button onClick={() => onOpenScores()} style={{fontSize: 24, borderRadius: '50%', padding: 0, width: 45, height: 45, position: "absolute", right: -35, top: -35, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <FaTrophy/>
         </button>
       </div>

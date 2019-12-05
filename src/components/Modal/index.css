@@ -31,6 +31,9 @@
     width: 250px;
     height: 300px;
 }
+.modal-content.hint {
+    height: 200px;
+}
 .modal.show > .modal-content {
     transform: scale(1);
 }

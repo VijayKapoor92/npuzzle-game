@@ -6,7 +6,7 @@ const ModalScores = ({open, scores, onClose}) =>
       open={open}
       title="Highscores"
       onClose={onClose}
-      scores
+      type="scores"
     >
       {scores.length > 0 ? (
         <ul style={{width: 200, listStyle: "none", padding: 0, margin: 0, fontSize: 16, maxHeight: 200, overflowY: "auto"}}>
