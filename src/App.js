@@ -121,9 +121,12 @@ class App extends Component {
     squares[zero.i][zero.j] = value;
 
     const winner = this.validateWinner(squares);
+    const scores = [];
 
-    if (winner)
+    if (winner) {
       StorageScores.insert({score: this.state.game.steps + 1});
+      scores.push({score: this.state.game.steps + 1});
+    }
 
     this.setState(state => ({
       ...state,
@@ -132,6 +135,7 @@ class App extends Component {
         squares,
         steps: state.game.steps + 1,
       },
+      scores: winner ? state.game.steps + 1 : [],
       winner,
       openWinner: winner
     }));
